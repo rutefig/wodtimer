@@ -14,18 +14,23 @@ export const timerSlice = createSlice({
         decrement: (state) => {
             state.value -= 1;
         },
-        setStartingTime: (state, action) => {
-            state.startingTime = action.payload;
+        resetTimer: (state, action) => {
+            state.value = action ? action.payload : 0;
         }
     }
 });
 
-export const { increment, decrement, setStartingTime } = timerSlice.actions;
+export const { increment, decrement, resetTimer } = timerSlice.actions;
 
 export const selectTime = (state) => state.timer.value;
 
 export const countUp = () => (dispatch, getState) => {
     setInterval(() => dispatch(increment()), 1000);
   };
+
+export const countDown = (startingTime) => (dispatch, getState) => {
+    dispatch(resetTimer(startingTime));
+    setInterval(() => dispatch(decrement()), 1000);
+}
 
 export default timerSlice.reducer;
