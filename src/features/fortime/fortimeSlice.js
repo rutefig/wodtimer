@@ -8,7 +8,9 @@ export const fortimeSlice = createSlice({
     name: 'fortime',
     initialState,
     reducers: {
-        setTimeCap: (state, action) => state.timecap += action.payload
+        setTimeCap: (state, action) => {
+            state.timecap = action.payload;
+        }
     }
 });
 
