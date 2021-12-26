@@ -4,21 +4,21 @@ const initialState = {
     value: 0
 }
 
-export const counterSlice = createSlice({
-    name: 'counter',
+export const timerSlice = createSlice({
+    name: 'timer',
     initialState,
     reducers: {
         increment: (state) => {
             state.value += 1;
         },
         decrement: (state) => {
-            state.value -= 1
+            state.value -= 1;
         },
     }
 });
 
-export const { increment, decrement } = counterSlice.actions;
+export const { increment, decrement } = timerSlice.actions;
 
-export const selectCount = (state) => state.counter.value;
+export const selectTime = (state) => state.timer.value;
 
-export default counterSlice.reducer;
+export default timerSlice.reducer;

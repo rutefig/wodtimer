@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
-import { Counter } from '../counter/Counter';
-import { increment } from '../counter/counterSlice';
+import { Timer } from '../timer/Timer';
+import { increment } from '../timer/timerSlice';
 
 export function Fortime() {
     const dispatch = useDispatch();
@@ -10,7 +10,7 @@ export function Fortime() {
     return(
         <>
             <h1>For Time</h1>
-            <Counter />
+            <Timer />
             <button onClick={() => dispatch(increment())}>Start Counting</button>
         </>
     )
