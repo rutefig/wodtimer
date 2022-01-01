@@ -1,18 +1,17 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch, batch } from 'react-redux';
 
-import { setTimeCap } from './fortimeSlice';
+import { setTimeCap, selectTimeCap } from './fortimeSlice';
 import { Timer } from '../timer/Timer';
 import { countUp, countDown } from '../timer/timerSlice';
 
 export function Fortime() {
+    const timeCap = useSelector(selectTimeCap);
     const dispatch = useDispatch();
+    dispatch(setTimeCap(30));
 
     const handleCountDown = () => {
-        batch(() => {
-            dispatch(setTimeCap(30));
-            dispatch(countDown(30));
-        });
+        dispatch(countDown(timeCap));
     }
 
     return(
